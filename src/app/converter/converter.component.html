@@ -1,0 +1,32 @@
+<div class="conv">
+<button class="btn btn-success" routerLink="/header">First page</button>
+</div>
+<form class="form">
+    <div class="comp">
+        <div class="first">
+        <label for="first">Currency First</label>
+        <input type="number" name="first" class="form-control" placeholder="money" [(ngModel)]="money"/>
+        </div>
+        <div class="sel">
+        <select class="form-select" aria-label="Default select example" name="sel1">
+            <option selected>USD</option>
+            <option value="1">EUR</option>
+            <option value="2">BTC</option>
+          </select>
+        </div>
+    </div>
+    <b>{{money.toFixed(2)}}{{from}}={{convert()}}{{to}}</b>
+    <div class="comp">
+        <div class="first">
+        <label for="first">Currency Second</label>
+        <input type="number" name="first" class="form-control" placeholder="money"/>
+        </div>
+        <div class="sel">
+        <select class="form-select" aria-label="Default select example">
+            <option selected [(ngModel)]="buy.USD">UA</option>
+            <option value="1">EUR</option>
+            <option value="2">USD</option>
+          </select>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,22 @@
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ccy</th>
+            <th>base_ccy</th>
+            <th>buy</th>
+            <th>sale</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cyr of cyrrencyitem">
+          <td>{{cyr.ccy}}</td>
+          <td>{{cyr.base_ccy}}</td>
+          <td>{{cyr.buy}}</td>
+          <td>{{cyr.sale}}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="button">
+<button class="btn btn-danger" routerLink="/converter">Converter</button>
+</div>
