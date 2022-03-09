@@ -1,17 +1,6 @@
 .conv{
     text-align: center;
 }
-.first{
-    width: 500px;
-    display: flex;
-    margin: 2em;
-    
-}
-.comp{
-    display: flex;
-    margin: 2em;
-    text-align: center;
-}
-.sel{
-    margin: 2em;
+#form{
+    margin-left: 2em;
 }

@@ -1,32 +1,46 @@
 <div class="conv">
 <button class="btn btn-success" routerLink="/header">First page</button>
 </div>
-<form class="form">
-    <div class="comp">
-        <div class="first">
-        <label for="first">Currency First</label>
-        <input type="number" name="first" class="form-control" placeholder="money" [(ngModel)]="money"/>
-        </div>
-        <div class="sel">
-        <select class="form-select" aria-label="Default select example" name="sel1">
-            <option selected>USD</option>
-            <option value="1">EUR</option>
-            <option value="2">BTC</option>
-          </select>
-        </div>
-    </div>
-    <b>{{money.toFixed(2)}}{{from}}={{convert()}}{{to}}</b>
-    <div class="comp">
-        <div class="first">
-        <label for="first">Currency Second</label>
-        <input type="number" name="first" class="form-control" placeholder="money"/>
-        </div>
-        <div class="sel">
-        <select class="form-select" aria-label="Default select example">
-            <option selected [(ngModel)]="buy.USD">UA</option>
-            <option value="1">EUR</option>
-            <option value="2">USD</option>
-          </select>
-        </div>
-    </div>
-</form>
+<div class="container mt-5">
+<table class="table table-striped">
+  <thead>
+      <tr>
+          <th>ccy</th>
+          <th>buy</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let cyr of par">
+        <td>{{cyr.ccy}}</td>
+        <td>{{cyr.buy}}</td>
+      </tr>
+  </tbody>
+</table>
+</div>
+<div class="container mt-5">
+  <label>Enter number</label>
+<div class="input-group mb-3">
+    <span class="input-group-text">$</span>
+    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" [(ngModel)]="num">
+    <span class="input-group-text">
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="summa">
+            <option selected *ngFor="let item of par">{{item.buy}}</option>
+        </select>
+    </span>
+  </div>
+  <label>You summa</label>
+  <div class="input-group mb-3">
+    <span class="input-group-text">$</span>
+    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" [value]="miltip()">
+    <span class="input-group-text">
+        <select class="form-select" aria-label="Default select example"[(ngModel)]="summa1">
+            <option selected *ngFor="let item of par">{{item.buy}}</option>
+        </select>
+    </span>
+  </div>
+  <label>Choose cyrrency</label>
+  <div class="input-group mb-3">
+    <span class="input-group-text">$</span>
+    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" [value]="division()">
+  </div>
+</div>
