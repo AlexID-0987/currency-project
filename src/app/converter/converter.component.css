@@ -4,3 +4,17 @@
 #form{
     margin-left: 2em;
 }
+.buttonsGroup{
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+.firstButton{
+  margin: 20px;
+}
+.secondButton{
+  margin: 20px;
+}
+h1{
+  text-align: center;
+}
