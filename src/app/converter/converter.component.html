@@ -17,14 +17,14 @@
   </tbody>
 </table>
 </div>
-<h1>Public API</h1>
+<h1>Public API Currency</h1>
 <div class="container mt-5">
   <label>Enter number</label>
 <div class="input-group mb-3">
     <span class="input-group-text">{{cangetMoney}}</span>
-    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" [(ngModel)]="responseTwo" >
+    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" [(ngModel)]="responseTwo"  >
   <span class="input-group-text">
-    <select #select (mouseleave)="canget(select.value)" class="input-group-text">
+    <select #select (mouseleave)="canget(select.value)" class="input-group-text" (click)="convertTwo()">
       <option value="USD">USD</option>
       <option value="UAH">UAH</option>
       <option value="EUR">EUR</option>
@@ -37,17 +37,15 @@
     <span class="input-group-text">{{cangetMoneyTo}}</span>
     <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" [(ngModel)]="response" [value]="multiple()">
     <span class="input-group-text">
-      <select #selectTo (mouseleave)="cangetTo(selectTo.value)" class="input-group-text">
+      <select #selectTo (mouseleave)="cangetTo(selectTo.value)" class="input-group-text" (click)="convertTwo()">
       <option value="UAH">UAH</option>
       <option value="USD">USD</option>
       <option value="EUR">EUR</option>
     </select>
     </span>
   </div>
+
   <div class="buttonsGroup">
-<div class="firstButton">
-<button class="btn btn-primary" (click)="convertTwo()">Save canget money first input</button>
-</div>
   <div class="secondButton">
     <button class="btn btn-danger" (click)="reset()">Clear input</button>
   </div>

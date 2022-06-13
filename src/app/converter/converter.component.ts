@@ -22,13 +22,10 @@ export class ConverterComponent implements OnInit {
   cangetMoney: string = 'USD'
   cangetMoneyTo: string = 'UAH'
   response: string = '1'
-  responseNumber: number = 0
+  responseNumber: number = 1
   itemjson: any = []
   responseTwo: string = '1'
-  responseNumberTwo: number = 0
-  itemjsonTwo:any=[]
-
-
+  responseNumberTwo: number = 1
 
   constructor(private serv: CyrrencyService) {
   }
@@ -50,6 +47,7 @@ export class ConverterComponent implements OnInit {
     console.log(this.cangetMoneyTo)
   }
 
+
   getapi() {
     this.serv.getpart().subscribe((c) => console.warn(this.par = c))
   }
@@ -64,12 +62,7 @@ export class ConverterComponent implements OnInit {
     return this.responseNumberTwo * this.responseNumber
 
   }
-  multipleTwo() {
-    this.responseNumber = Number(this.response)
-    this.responseNumberTwo = Number(this.responseTwo)
-    return this.responseNumberTwo * this.responseNumber
 
-  }
 reset(){
     return this.response=''
 }
@@ -90,10 +83,9 @@ reset(){
       if (this.cangetMoneyTo == 'EUR') {
         this.response = this.itemjson.rates.EUR
       }
- this.responseTwo=''
+
     })
   }
-
 
 
 }
