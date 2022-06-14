@@ -22,7 +22,7 @@
   <label>Enter number</label>
 <div class="input-group mb-3">
     <span class="input-group-text">{{cangetMoney}}</span>
-    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" [(ngModel)]="responseTwo"  >
+    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" [(ngModel)]="responseTwo">
   <span class="input-group-text">
     <select #select (mouseleave)="canget(select.value)" class="input-group-text" (click)="convertTwo()">
       <option value="USD">USD</option>

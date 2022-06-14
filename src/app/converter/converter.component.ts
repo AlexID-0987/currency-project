@@ -1,9 +1,7 @@
-import { convertActionBinding } from '@angular/compiler/src/compiler_util/expression_converter';
 import { Component, OnInit } from '@angular/core';
 import { CyrrencyService } from 'src/cyrrency.service';
 import { Part } from '../part';
-import {HttpClient} from "@angular/common/http";
-import {Currency} from "../currency";
+
 
 
 
@@ -16,7 +14,6 @@ import {Currency} from "../currency";
 export class ConverterComponent implements OnInit {
 
   par: Part[] = []
-  currency_converter: any
   num: number = 1
   item: number = 0;
   cangetMoney: string = 'USD'
@@ -26,6 +23,7 @@ export class ConverterComponent implements OnInit {
   itemjson: any = []
   responseTwo: string = '1'
   responseNumberTwo: number = 1
+  it:any
 
   constructor(private serv: CyrrencyService) {
   }
@@ -33,7 +31,7 @@ export class ConverterComponent implements OnInit {
 
   ngOnInit(): void {
     this.getapi()
-    this.getapi_currency()
+
 
   }
 
@@ -52,9 +50,7 @@ export class ConverterComponent implements OnInit {
     this.serv.getpart().subscribe((c) => console.warn(this.par = c))
   }
 
-  getapi_currency() {
-    this.serv.search().subscribe((data) => console.warn(this.currency_converter = data))
-  }
+
 
   multiple() {
     this.responseNumber = Number(this.response)
