@@ -19,31 +19,36 @@
 </div>
 <h1>Public API Currency</h1>
 <div class="container mt-5">
-  <label>Enter number</label>
+  <label>First currency</label>
 <div class="input-group mb-3">
     <span class="input-group-text">{{cangetMoney}}</span>
-    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" [(ngModel)]="responseTwo">
+    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"  [(ngModel)]="responseTwo">
   <span class="input-group-text">
-    <select #select (mouseleave)="canget(select.value)" class="input-group-text" (click)="convertTwo()">
+    <select #select (mouseleave)="canget(select.value)" class="input-group-text" (click)="convertOne()">
       <option value="USD">USD</option>
       <option value="UAH">UAH</option>
       <option value="EUR">EUR</option>
+      <option value="ALL">ALL</option>
     </select>
   </span>
 
   </div>
-  <label>You summa</label>
+  <label>Second currency</label>
   <div class="input-group mb-3">
     <span class="input-group-text">{{cangetMoneyTo}}</span>
-    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" [(ngModel)]="response" [value]="multiple()">
+    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" [(ngModel)]="response">
     <span class="input-group-text">
       <select #selectTo (mouseleave)="cangetTo(selectTo.value)" class="input-group-text" (click)="convertTwo()">
       <option value="UAH">UAH</option>
       <option value="USD">USD</option>
       <option value="EUR">EUR</option>
+        <option value="ALL">ALL</option>
     </select>
     </span>
   </div>
+
+  <label>You summa</label>
+<input type="text" class="form-control" [value]="multiple()">
 
   <div class="buttonsGroup">
   <div class="secondButton">

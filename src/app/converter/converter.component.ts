@@ -58,11 +58,36 @@ export class ConverterComponent implements OnInit {
     return this.responseNumberTwo * this.responseNumber
 
   }
+  multipleTwo() {
+    this.responseNumber = Number(this.response)
+    this.responseNumberTwo = Number(this.responseTwo)
+    return this.responseNumber*this.responseNumberTwo
+
+  }
 
 reset(){
     return this.response=''
 }
-
+  convertOne() {
+    console.log(this.cangetMoneyTo)
+    this.serv.getCurrency(this.cangetMoneyTo).subscribe(data => {
+      this.itemjson = JSON.stringify(data);
+      this.itemjson = JSON.parse(this.itemjson)
+      console.log(this.itemjson)
+      if (this.cangetMoney == 'UAH') {
+        this.responseTwo = this.itemjson.rates.UAH
+      }
+      if (this.cangetMoney == 'USD') {
+        this.responseTwo = this.itemjson.rates.USD
+      }
+      if (this.cangetMoney == 'EUR') {
+        this.responseTwo = this.itemjson.rates.EUR
+      }
+      if (this.cangetMoney == 'ALL') {
+        this.responseTwo = this.itemjson.rates.ALL
+      }
+    })
+  }
 
   convertTwo() {
     console.log(this.cangetMoney)
@@ -79,7 +104,9 @@ reset(){
       if (this.cangetMoneyTo == 'EUR') {
         this.response = this.itemjson.rates.EUR
       }
-
+      if (this.cangetMoney == 'ALL') {
+        this.responseTwo = this.itemjson.rates.ALL
+      }
     })
   }
 
