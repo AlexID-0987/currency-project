@@ -21,38 +21,52 @@
 <div class="container mt-5">
   <label>First currency</label>
 <div class="input-group mb-3">
-    <span class="input-group-text">{{cangetMoney}}</span>
-    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"  [(ngModel)]="responseTwo">
+
+  <span class="input-group-text">{{responseTwo}}</span>
+  <span class="input-group-text">{{changetMoney}}</span>
+    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"  [(ngModel)]="itemInputValue" [checked]="multipleInputOne()" placeholder="You are adding quantity currency">
+  <span class="input-group-text">You Summa=></span>
+  <input type="text" [(ngModel)]="multipleResponseOne" id="summaInputOne">
   <span class="input-group-text">
-    <select #select (mouseleave)="canget(select.value)" class="input-group-text" (click)="convertOne()">
+    <select #select (mouseleave)="changet(select.value)" class="input-group-text" (click)="convertOne()">
       <option value="USD">USD</option>
       <option value="UAH">UAH</option>
       <option value="EUR">EUR</option>
       <option value="ALL">ALL</option>
+      <option value="BRL">BRL</option>
     </select>
   </span>
+
+
+
+
+
+
 
   </div>
   <label>Second currency</label>
   <div class="input-group mb-3">
-    <span class="input-group-text">{{cangetMoneyTo}}</span>
-    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" [(ngModel)]="response">
+    <span class="input-group-text">{{response}}</span>
+    <span class="input-group-text">{{changetMoneyTo}}</span>
+    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" [(ngModel)]="itemInputValueTwo" [checked]="multipleInputTwo()" placeholder="You are adding quantity currency">
+    <span class="input-group-text">You Summa=></span>
+    <input type="text" [(ngModel)]="multipleResponseTwo" id="summaInput">
     <span class="input-group-text">
-      <select #selectTo (mouseleave)="cangetTo(selectTo.value)" class="input-group-text" (click)="convertTwo()">
+      <select #selectTo (mouseleave)="changetTo(selectTo.value)" class="input-group-text" (click)="convertTwo()">
       <option value="UAH">UAH</option>
       <option value="USD">USD</option>
       <option value="EUR">EUR</option>
         <option value="ALL">ALL</option>
+        <option value="BRL">BRL</option>
     </select>
     </span>
   </div>
-
-  <label>You summa</label>
-<input type="text" class="form-control" [value]="multiple()">
-
   <div class="buttonsGroup">
   <div class="secondButton">
-    <button class="btn btn-danger" (click)="reset()">Clear input</button>
+    <button class="btn btn-danger" (click)="reset()">Clean input</button>
   </div>
   </div>
 </div>
+
+
+
