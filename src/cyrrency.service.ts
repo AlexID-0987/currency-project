@@ -20,12 +20,15 @@ PART:Part[]=[]
   getcyrrency():Observable<Item[]>{
      return this.http.get<Item[]>(this.endpoint)
   }
+  getCurrency(country:string):Observable<Currency>{
+    let emdpointMoney='https://api.exchangerate-api.com/v4/latest/'+country
+    return this.http.get<Currency>(emdpointMoney)
+  }
 
-
-  getCurrency(country:string){
+  /*getCurrency(country:string){
     let emdpointMoney='https://api.exchangerate-api.com/v4/latest/'+country
     return this.http.get(emdpointMoney)
-  }
+  }*/
   getpart():Observable<Part[]>{
     return this.http.get<Part[]>(this.endpoint)
  }
