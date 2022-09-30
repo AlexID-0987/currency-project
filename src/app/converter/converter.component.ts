@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { CyrrencyService } from 'src/cyrrency.service';
-import { Part } from '../part';
-
-
+import {Component, OnInit} from '@angular/core';
+import {CyrrencyService} from 'src/cyrrency.service';
+import {Part} from '../part';
+import {Currency} from "../currency";
 
 
 @Component({
@@ -16,14 +15,20 @@ export class ConverterComponent implements OnInit {
   par: Part[] = []
   num: number = 1
   item: number = 0;
-  cangetMoney: string = 'USD'
-  cangetMoneyTo: string = 'UAH'
-  response: string = '1'
-  responseNumber: number = 1
-  itemjson: any = []
-  responseTwo: string = '1'
-  responseNumberTwo: number = 1
-  it:any
+  key: string = ''
+  itemResp: object = {
+    [this.key]: Number
+  }
+  search: string = "USD"
+  searchCurrency: string = "USD"
+  searchCurrencyTwo: string = "USD"
+  numberMultiply: number = 1
+  numberMultiplyTwo: number = 1
+  inputValueOne: number = 0
+  inputValueTwo: number = 0
+  responseOne: number = 0
+  responseTwo: number = 0
+
 
   constructor(private serv: CyrrencyService) {
   }
@@ -31,18 +36,17 @@ export class ConverterComponent implements OnInit {
 
   ngOnInit(): void {
     this.getapi()
-
-
+    this.getapiTwo()
   }
 
-  canget(money: string) {
-    this.cangetMoney = money
-    console.log(this.cangetMoney)
+  changet(money: string) {
+    this.searchCurrency = money
+    console.log(this.searchCurrency)
   }
 
-  cangetTo(moneyTo: string) {
-    this.cangetMoneyTo = moneyTo
-    console.log(this.cangetMoneyTo)
+  changetTo(moneyTo: string) {
+    this.searchCurrencyTwo = moneyTo
+    console.log(this.searchCurrencyTwo)
   }
 
 
@@ -50,37 +54,43 @@ export class ConverterComponent implements OnInit {
     this.serv.getpart().subscribe((c) => console.warn(this.par = c))
   }
 
+  getapiTwo() {
+    this.serv.getCurrency(this.search).subscribe((data) => console.log(this.itemResp = data.rates))
+    console.log(this.itemResp)
 
-
-  multiple() {
-    this.responseNumber = Number(this.response)
-    this.responseNumberTwo = Number(this.responseTwo)
-    return this.responseNumberTwo * this.responseNumber
 
   }
 
-reset(){
-    return this.response=''
-}
+  clickButt() {
+    const array = Object.entries(this.itemResp)
+    let f = new Map(array)
+    this.numberMultiply = f.get(this.searchCurrency)
+    return console.log(this.numberMultiply)
+  }
 
+  clickButtTwo() {
+    const arrayTwo = Object.entries(this.itemResp)
+    let f = new Map(arrayTwo)
+    this.numberMultiplyTwo = f.get(this.searchCurrencyTwo)
+    return console.log(this.numberMultiplyTwo)
+  }
 
-  convertTwo() {
-    console.log(this.cangetMoney)
-    this.serv.getCurrency(this.cangetMoney).subscribe(data => {
-      this.itemjson = JSON.stringify(data);
-      this.itemjson = JSON.parse(this.itemjson)
-      console.log(this.itemjson)
-      if (this.cangetMoneyTo == 'UAH') {
-        this.response = this.itemjson.rates.UAH
-      }
-      if (this.cangetMoneyTo == 'USD') {
-        this.response = this.itemjson.rates.USD
-      }
-      if (this.cangetMoneyTo == 'EUR') {
-        this.response = this.itemjson.rates.EUR
-      }
+  getAllCurrency(): string[] {
+    return Object.keys(this.itemResp)
+  }
 
-    })
+  getAllCurrencyTwo(): string[] {
+    return Object.keys(this.itemResp)
+  }
+
+  multipleFirstNumber() {
+    return this.responseOne = this.inputValueTwo * this.numberMultiply
+
+  }
+
+  multipleSecondNumber() {
+    return this.responseTwo = this.inputValueOne * this.numberMultiplyTwo
+
   }
 
 

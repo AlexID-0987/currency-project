@@ -1,53 +1,42 @@
 <div class="conv">
-<button class="btn btn-success" routerLink="/header">First page</button>
+  <button class="btn btn-success" routerLink="/header">First page</button>
 </div>
 <div class="container mt-5">
-<table class="table table-striped">
-  <thead>
-      <tr>
-          <th>ccy</th>
-          <th>buy</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr *ngFor="let cyr of par">
-        <td>{{cyr.ccy}}</td>
-        <td>{{cyr.buy}}</td>
-      </tr>
-  </tbody>
-</table>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ccy</th>
+      <th>buy</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let cyr of par">
+      <td>{{cyr.ccy}}</td>
+      <td>{{cyr.buy}}</td>
+    </tr>
+    </tbody>
+  </table>
 </div>
-<h1>Public API Currency</h1>
-<div class="container mt-5">
-  <label>Enter number</label>
-<div class="input-group mb-3">
-    <span class="input-group-text">{{cangetMoney}}</span>
-    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" [(ngModel)]="responseTwo">
-  <span class="input-group-text">
-    <select #select (mouseleave)="canget(select.value)" class="input-group-text" (click)="convertTwo()">
-      <option value="USD">USD</option>
-      <option value="UAH">UAH</option>
-      <option value="EUR">EUR</option>
-    </select>
-  </span>
-
-  </div>
-  <label>You summa</label>
+<div class="container mt-3">
   <div class="input-group mb-3">
-    <span class="input-group-text">{{cangetMoneyTo}}</span>
-    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" [(ngModel)]="response" [value]="multiple()">
+    <span class="input-group-text">{{numberMultiply}}</span>
+    <input class="form-control" type="number" placeholder="Number" [(ngModel)]="inputValueOne"
+           [checked]="multipleFirstNumber()" [value]="responseOne.toFixed(2)">
     <span class="input-group-text">
-      <select #selectTo (mouseleave)="cangetTo(selectTo.value)" class="input-group-text" (click)="convertTwo()">
-      <option value="UAH">UAH</option>
-      <option value="USD">USD</option>
-      <option value="EUR">EUR</option>
-    </select>
+<select #selectIn (click)="changet(selectIn.value)" (click)="clickButt()">
+  <option *ngFor="let a of getAllCurrency()" [value]="a">{{a}}</option>
+</select>
     </span>
   </div>
-
-  <div class="buttonsGroup">
-  <div class="secondButton">
-    <button class="btn btn-danger" (click)="reset()">Clear input</button>
-  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text">{{numberMultiplyTwo}}</span>
+    <input class="form-control" type="number" placeholder="Number" [(ngModel)]="inputValueTwo"
+           [checked]="multipleSecondNumber()" [value]="responseTwo.toFixed(2)">
+    <span class="input-group-text">
+<select #selectTo (click)="changetTo(selectTo.value)" (click)="clickButtTwo()">
+  <option *ngFor="let b of getAllCurrencyTwo()" [value]="b">{{b}}</option>
+</select>
+  </span>
   </div>
 </div>
+
