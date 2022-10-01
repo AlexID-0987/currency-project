@@ -21,6 +21,10 @@ export class ConverterComponent implements OnInit {
   currencyBase: string = 'USD'
   objectValueOne:number=0
   objectValueTwo:number=0
+  inputNumberValueOne:number=0
+  inputNumberValueTwo:number=0
+  responseFirstInput:number=0
+  responseSecondInput:number=0
   constructor(private serv: CyrrencyService) {
   }
 
@@ -68,7 +72,15 @@ export class ConverterComponent implements OnInit {
     this.objectValueTwo=objectMap.get(this.currencyMoneyTwo)
     return console.log(this.objectValueTwo)
   }
+  multipleFirstTwoNumbers(){
+    return this.responseFirstInput=this.objectValueOne*this.inputNumberValueTwo
+  }
+  multipleSecondTwoNumbers(){
+    return this.responseSecondInput=this.objectValueTwo*this.inputNumberValueOne
+  }
   reset() {
+   this.inputNumberValueOne=0
+    this.inputNumberValueTwo=0
 
   }
 
