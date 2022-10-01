@@ -22,26 +22,23 @@
 <div class="container mt-5">
   <label>Enter number</label>
 <div class="input-group mb-3">
-    <span class="input-group-text">{{cangetMoney}}</span>
-    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" [(ngModel)]="responseTwo">
+    <span class="input-group-text">{{objectValueOne}}</span>
+    <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" >
   <span class="input-group-text">
-    <select #select (mouseleave)="canget(select.value)" class="input-group-text" (click)="convertTwo()">
-      <option value="USD">USD</option>
-      <option value="UAH">UAH</option>
-      <option value="EUR">EUR</option>
+    <select #select (click)="changet(select.value)" class="input-group-text" (click)="addedFirstValueObject()" >
+      <option *ngFor="let objectKeyOne of addedToFirstKeyObject()" [value]="objectKeyOne">{{objectKeyOne}}</option>
     </select>
+
   </span>
 
   </div>
   <label>You summa</label>
   <div class="input-group mb-3">
-    <span class="input-group-text">{{cangetMoneyTo}}</span>
-    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" [(ngModel)]="response" [value]="multiple()">
+    <span class="input-group-text">{{objectValueTwo}}</span>
+    <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)"  >
     <span class="input-group-text">
-      <select #selectTo (mouseleave)="cangetTo(selectTo.value)" class="input-group-text" (click)="convertTwo()">
-      <option value="UAH">UAH</option>
-      <option value="USD">USD</option>
-      <option value="EUR">EUR</option>
+      <select #selectTo (click)="changetTo(selectTo.value)" class="input-group-text" (click)="addedSecondValueObject()">
+      <option *ngFor="let objectKey of addedToSecondKeyObject()" [value]="objectKey">{{objectKey}}</option>
     </select>
     </span>
   </div>
@@ -52,3 +49,4 @@
   </div>
   </div>
 </div>
+
