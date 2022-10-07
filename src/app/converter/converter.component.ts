@@ -1,8 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {CyrrencyService} from 'src/app/common/services/cyrrency.service';
 import {Part} from '../common/interfaces/part';
-import ProjectState from "../common/state/projectState";
-import InputState from "../common/state/inputState";
+import key from "../common/state/objectApi";
+import InitializationClassProjectState from "../common/state/initializationClassProjectState";
+import InitializationClassInputState from "../common/state/initializationClassInputState";
+
+
 
 
 @Component({
@@ -14,14 +17,14 @@ import InputState from "../common/state/inputState";
 export class ConverterComponent implements OnInit {
 
   par: Part[] = []
-  exportValue=new ProjectState('USD','USD','USD')
-  inputValueForm=new InputState(0)
+  exportValue=InitializationClassProjectState
+  inputValueForm=InitializationClassInputState
   currencyMoneyOne=this.exportValue.sendToStringFirstSelect()
   currencyMoneyTwo=this.exportValue.sendToStringSecondSelect()
   currencyBase=this.exportValue.sendToStringBaseCurrency()
-  key: string = ''
+  keyObject=key
   itemResponse: object = {
-    [this.key]: Number
+    [this.keyObject]: Number
   }
   objectValueOne=this.inputValueForm.sendNumberInput()
   objectValueTwo=this.inputValueForm.sendNumberInput()

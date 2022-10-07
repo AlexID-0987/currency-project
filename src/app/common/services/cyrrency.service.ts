@@ -5,14 +5,16 @@ import { Observable } from 'rxjs';
 import { Item } from '../interfaces/Item';
 import { Part } from '../interfaces/part';
 import {Currency} from "../interfaces/currency";
+import EndpointPrivat from "../state/endpointPrivat";
+import EndpointPublicApiCurrency from "../state/endpointPublicApiCurrency";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CyrrencyService {
-endpoint='https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5';
+endpoint=EndpointPrivat
 item:Item[]=[]
-
+endpointPublicCurrency=EndpointPublicApiCurrency
 
 
 
@@ -21,7 +23,7 @@ item:Item[]=[]
      return this.http.get<Item[]>(this.endpoint)
   }
   getCurrency(country:string):Observable<Currency>{
-    let emdpointMoney='https://api.exchangerate-api.com/v4/latest/'+country
+    let emdpointMoney=this.endpointPublicCurrency+country
     return this.http.get<Currency>(emdpointMoney)
   }
 
