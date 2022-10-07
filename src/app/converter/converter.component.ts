@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {CyrrencyService} from 'src/cyrrency.service';
-import {Part} from '../part';
+import {CyrrencyService} from 'src/app/common/services/cyrrency.service';
+import {Part} from '../common/interfaces/part';
+import ProjectState from "../common/state/projectState";
+import InputState from "../common/state/inputState";
 
 
 @Component({
@@ -12,19 +14,21 @@ import {Part} from '../part';
 export class ConverterComponent implements OnInit {
 
   par: Part[] = []
-  currencyMoneyOne: string = 'USD'
-  currencyMoneyTwo: string = 'USD'
+  exportValue=new ProjectState('USD','USD','USD')
+  inputValueForm=new InputState(0)
+  currencyMoneyOne=this.exportValue.sendToStringFirstSelect()
+  currencyMoneyTwo=this.exportValue.sendToStringSecondSelect()
+  currencyBase=this.exportValue.sendToStringBaseCurrency()
   key: string = ''
   itemResponse: object = {
     [this.key]: Number
   }
-  currencyBase: string = 'USD'
-  objectValueOne:number=0
-  objectValueTwo:number=0
-  inputNumberValueOne:number=0
-  inputNumberValueTwo:number=0
-  responseFirstInput:number=0
-  responseSecondInput:number=0
+  objectValueOne=this.inputValueForm.sendNumberInput()
+  objectValueTwo=this.inputValueForm.sendNumberInput()
+  inputNumberValueOne=this.inputValueForm.sendNumberInput()
+  inputNumberValueTwo=this.inputValueForm.sendNumberInput()
+  responseFirstInput=this.inputValueForm.sendNumberInput()
+  responseSecondInput=this.inputValueForm.sendNumberInput()
   constructor(private serv: CyrrencyService) {
   }
 
@@ -79,8 +83,8 @@ export class ConverterComponent implements OnInit {
     return this.responseSecondInput=this.objectValueTwo*this.inputNumberValueOne
   }
   reset() {
-   this.inputNumberValueOne=0
-    this.inputNumberValueTwo=0
+   this.inputNumberValueOne=this.inputValueForm.sendNumberInput()
+    this.inputNumberValueTwo=this.inputValueForm.sendNumberInput()
 
   }
 
