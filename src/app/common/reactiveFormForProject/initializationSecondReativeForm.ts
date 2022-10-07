@@ -1,0 +1,4 @@
+import SecondReactiveControl from "./secondReactiveControl";
+
+let InitializationSecondReactiveForm=new SecondReactiveControl
+export default InitializationSecondReactiveForm.secondInputFormControls

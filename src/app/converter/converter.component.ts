@@ -4,6 +4,8 @@ import {Part} from '../common/interfaces/part';
 import key from "../common/state/objectApi";
 import InitializationClassProjectState from "../common/state/initializationClassProjectState";
 import InitializationClassInputState from "../common/state/initializationClassInputState";
+import InitializationReactiveForm from "../common/reactiveFormForProject/initializationReactiveForm";
+import InitializationSecondReativeForm from "../common/reactiveFormForProject/initializationSecondReativeForm";
 
 
 
@@ -32,6 +34,8 @@ export class ConverterComponent implements OnInit {
   inputNumberValueTwo=this.inputValueForm.sendNumberInput()
   responseFirstInput=this.inputValueForm.sendNumberInput()
   responseSecondInput=this.inputValueForm.sendNumberInput()
+  firstInputFormControl=InitializationReactiveForm
+  secondInputFormControl=InitializationSecondReativeForm
   constructor(private serv: CyrrencyService) {
   }
 
