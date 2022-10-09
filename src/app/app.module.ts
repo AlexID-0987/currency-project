@@ -8,12 +8,14 @@ import { FormsModule } from '@angular/forms';
 import { HeaderEComponent } from './header-e/header-e.component';
 import { ConverterComponent } from './converter/converter.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { ConverterApiCurrencyComponent } from './converter-api-currency/converter-api-currency.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderEComponent,
-    ConverterComponent
+    ConverterComponent,
+    ConverterApiCurrencyComponent
   ],
   imports: [
     BrowserModule,

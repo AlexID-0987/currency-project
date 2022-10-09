@@ -1,0 +1,5 @@
+import ReactiveFormGroupCurrencyArea from "./reactiveFormGroupCurrencyArea";
+
+let InitializationReactiveFormForCurrency=new ReactiveFormGroupCurrencyArea
+export default InitializationReactiveFormForCurrency.formInputGroupCurrency
+
