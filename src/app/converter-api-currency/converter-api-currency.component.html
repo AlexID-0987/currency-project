@@ -1,0 +1,33 @@
+<h1>Public API Currency</h1>
+<div class="container mt-5">
+  <label>Enter number</label>
+  <div class="input-group mb-3" [formGroup]="formGroupInputOne">
+    <span class="input-group-text">{{objectValueOne}}</span>
+    <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" formControlName="firstInputPrevState"
+           [checked]="multipleFirstTwoNumbers()" [value]="responseFirstInput.toFixed(2)">
+    <span class="input-group-text">
+    <select #select (click)="changet(select.value)" class="input-group-text" (click)="addedFirstValueObject()" >
+      <option *ngFor="let objectKeyOne of addedToFirstKeyObject()" [value]="objectKeyOne">{{objectKeyOne}}</option>
+    </select>
+
+  </span>
+
+  </div>
+  <label>You summa</label>
+  <div class="input-group mb-3" [formGroup]="formGroupInputSecond">
+    <span class="input-group-text">{{objectValueTwo}}</span>
+    <input type="number" class="form-control"  aria-label="Amount (to the nearest dollar)" formControlName="secondInputPrevState"
+           [checked]="multipleSecondTwoNumbers()" [value]="responseSecondInput.toFixed(2)">
+    <span class="input-group-text">
+      <select #selectTo (click)="changetTo(selectTo.value)" class="input-group-text" (click)="addedSecondValueObject()">
+      <option *ngFor="let objectKey of addedToSecondKeyObject()" [value]="objectKey">{{objectKey}}</option>
+    </select>
+    </span>
+  </div>
+
+  <div class="buttonsGroup">
+    <div class="secondButton">
+      <button class="btn btn-danger" (click)="reset()">Clear input</button>
+    </div>
+  </div>
+</div>
