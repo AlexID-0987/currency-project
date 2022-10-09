@@ -10,12 +10,13 @@ import { ConverterComponent } from './converter/converter.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { ConverterApiCurrencyComponent } from './converter-api-currency/converter-api-currency.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderEComponent,
     ConverterComponent,
-    ConverterApiCurrencyComponent
+    ConverterApiCurrencyComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,7 @@ import key from "../common/state/objectApi";
 import {CyrrencyService} from "../common/services/cyrrency.service";
 
 
+
 @Component({
   selector: 'app-converter-api-currency',
   templateUrl: './converter-api-currency.component.html',
@@ -74,8 +75,8 @@ export class ConverterApiCurrencyComponent implements OnInit {
   multipleFirstTwoNumbers(){
     return this.responseFirstInput=this.objectValueOne*this.inputNumberValueTwo
   }
-  multipleSecondTwoNumbers(){
-    return this.responseSecondInput=this.objectValueTwo*this.inputNumberValueOne
+  multipleSecondTwoNumbers() {
+    return this.responseSecondInput = this.objectValueTwo * this.inputNumberValueOne
   }
   reset() {
     this.inputNumberValueOne=this.inputValueForm.sendNumberInput()
@@ -85,7 +86,9 @@ export class ConverterApiCurrencyComponent implements OnInit {
  getValueFirstInput(){
    return this.formGroupInputOne.valueChanges.subscribe(value=>this.inputNumberValueOne=value.firstInputPrevState)
  }
+
  getValueSecondInput(){
     return this.formGroupInputSecond.valueChanges.subscribe(value=>this.inputNumberValueTwo=value.secondInputPrevState)
  }
+
 }
